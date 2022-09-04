@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">CUY UNIVERSITY</h1><br><br>
+        <h3>Welcome, <b id="username"></b></h3><br>
+        <h3>You're Logged As <b id="role"></b></h3><br>
+        <p id="logged"></p><br>
+        <button id="loginButton" onclick="onLogout()">LOGOUT</button><br>
+    </div>
+    <script type="application/javascript">
+
+        document.getElementById('username').innerHTML = localStorage.getItem('username');
+        document.getElementById('role').innerHTML = localStorage.getItem('role');
+
+        function onLogout() {
+            localStorage.clear();
+            window.location.replace('index.html');
+        }
+    </script>
+</body>
+
+</html>

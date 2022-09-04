@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="judul"></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>REGISTER</h1>
+            <label>Username :</label><br>
+            <input type="text" id="username" required placeholder="Silakan Isi Username"><br>
+            <label>Password :</label><br>
+            <input type="password" id="password" required placeholder="Silakan Isi Password"><br>
+            <select id="role" required>
+                <option value="admin">Admin</option>
+                <option value="customer">Customer</option>
+                <option value="supplier">Supplier</option>
+            </select>
+            <button id="registerButton" onclick="onRegister()">Register</button>
+            <a href="index.html">Sign In</a>
+    </div>
+    <div class="container_footer">
+        <h1>
+            &copy; Ahmad Ilham, S.Kom 2022 &copy;
+        </h1>
+    </div>
+    <script type="application/javascript">
+        let username = document.getElementById('username');
+        let password = document.getElementById('password');
+        let role = document.getElementById('role');
+
+        let registerButton = document.getElementById('registerButton');
+
+        function onRegister() {
+            console.log('Berhasil Di Daftar');
+            console.log('Username :', username.value);
+            console.log('Password :', password.value);
+            console.log('Role :', role.value);
+            localStorage.setItem()
+        }
+    </script>
+</body>
+
+</html>

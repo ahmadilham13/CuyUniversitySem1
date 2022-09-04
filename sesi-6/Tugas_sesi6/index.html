@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CuyUniversity Tugas Sesi 6</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <a onclick="reRender()" id="home">HOME</a>
+            <a onclick="pageMode('dark')" id="dark">MODE DARK</a>
+            <a onclick="pageMode('pink')" id="pink">MODE PINK</a>
+            <a onclick="pageMode('aqua')" id="aqua">MODE AQUA</a>
+        </nav>
+        <h1 align="center">AHMAD ILHAM'S <br> DARK LIGHT MODE WEBSITE</h1>
+        <p class="info" id="info"></p>
+    </div>
+    <!-- initializing function script -->
+    <script type="application/javascript">
+        let body = document.body;
+        let info = document.getElementById("info");
+
+        const maxCounter = 5;
+        let modeCounter= 0;
+
+        function defaultBtn() {
+            document.getElementById("dark").textContent = "MODE DARK";
+            document.getElementById("pink").textContent = "MODE PINK";
+            document.getElementById("aqua").textContent = "MODE AQUA";
+
+            document.getElementById("dark").classList.remove("Active");
+            document.getElementById("pink").classList.remove("Active");
+            document.getElementById("aqua").classList.remove("Active");
+        }
+
+
+        function pageMode(varMode) {
+            modeCounter += 1;
+            if(body.classList.length > 0) {
+                // sudah ada tombol light
+            if (body.classList.contains(varMode)) {
+                body.classList.toggle(varMode);
+                document.getElementById(varMode).classList.toggle("Active");
+                defaultBtn();
+            }
+            else {
+                defaultBtn();
+                body.classList.remove(`${body.classList.value}`);
+                body.classList.toggle(varMode);
+                document.getElementById(varMode).textContent = "MODE LIGHT";
+                document.getElementById(varMode).classList.toggle("Active");
+            }
+        }else{
+            // belum  tombol light
+            body.classList.toggle(varMode);
+            document.getElementById(varMode).textContent = "MODE LIGHT";
+            document.getElementById(varMode).classList.toggle("Active");
+        }
+
+            if (modeCounter == maxCounter) {
+                info.textContent = "JATAH FITUR MODE SUDAH HABIS";
+                dark.style.display = "none";
+                pink.style.display = "none";
+                aqua.style.display = "none";
+                home.textContent = "RESTART";
+                return;
+            }
+            info.textContent = `Mode sudah di klik sebanyak ${modeCounter}x, tersisa ${maxCounter - modeCounter}`
+        }
+        function reRender() {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

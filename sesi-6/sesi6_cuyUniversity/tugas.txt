@@ -1,0 +1,3 @@
+Tugas SESI - 6
+1. Tulisan Mode Ditambah jadi MODE-Dark / MODE-LIGHT
+2. Tambah menu menu lain ( mode Berani, Mode Jomblo)

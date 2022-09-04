@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="judul">Sign In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- form login start -->
+    <div class="container" id="containerLogin">
+        <h1>LOGIN</h1>
+        <label>Username :</label><br>
+        <input type="text" id="usernameLogin" placeholder="Silakan Isi Username"><br>
+        <label>Password :</label><br>
+        <input type="password" id="passwordLogin" placeholder="Silakan Isi Password"><br>
+        <button id="loginButton" onclick="onLogin()">LOGIN</button><br>
+        <p id="errorLogin">Username Or Password Invalid!</p>
+        <span onclick="text('daftar')" id="forRegister">Sign Up</span>
+    </div>
+    <!-- form login end -->
+
+    <!-- form register start -->
+    <div class="container" id="containerRegister">
+        <h1>REGISTER</h1>
+        <label>Username :</label><br>
+        <input type="text" id="usernameRegister" required placeholder="Silakan Isi Username"><br>
+        <label>Password :</label><br>
+        <input type="password" id="passwordRegister" required placeholder="Silakan Isi Password"><br>
+        <select id="role" required>
+            <option value="admin">Admin</option>
+            <option value="customer">Customer</option>
+            <option value="supplier">Supplier</option>
+        </select>
+        <button id="registerButton" onclick="onRegister()">Register</button><br>
+        <p id="errorRegister">Username Or Password Invalid!</p>
+        <span onclick="text('login')" id="forLogin">Sign In</span>
+    </div>
+    <!-- form register end -->
+    <div class="container_footer">
+        <h1>
+            &copy; Ahmad Ilham, S.Kom 2022 &copy;
+        </h1>
+    </div>
+    <script type="application/javascript">
+        // form login
+        let usernameLogin = document.getElementById('usernameLogin');
+        let passwordLogin = document.getElementById('passwordLogin');
+        let loginButton = document.getElementById('loginButton');
+        let containerLogin = document.getElementById('containerLogin');
+        let forLogin = document.getElementById('forLogin');
+        let errorLogin = document.getElementById('errorLogin');
+        // form register
+        let usernameRegister = document.getElementById('usernameRegister');
+        let passwordRegister = document.getElementById('passwordRegister');
+        let role = document.getElementById('role');
+        let registerButton = document.getElementById('registerButton');
+        let containerRegister = document.getElementById('containerRegister');
+        let forRegister = document.getElementById('forRegister');
+        let errorRegister = document.getElementById('errorRegister');
+
+        errorRegister.style.display = "none";
+        errorLogin.style.display = "none";
+        containerRegister.style.display = "none";
+        function text(params) {
+            if (params == 'daftar') {
+                document.getElementById("judul").innerHTML = "Sign Up"
+                containerRegister.style.display = "block";
+                containerLogin.style.display = "none";
+            }
+            if (params == 'login') {
+                document.getElementById("judul").innerHTML = "Sign In"
+                containerRegister.style.display = "none";
+                containerLogin.style.display = "block";
+            }
+        }
+
+        function onRegister() {
+            if (usernameRegister.value !== "" && passwordRegister.value !== "") {
+                localStorage.setItem("username", usernameRegister.value);
+                localStorage.setItem("password", passwordRegister.value);
+                localStorage.setItem("role", role.value);
+                containerRegister.style.display = "none";
+                containerLogin.style.display = "block";
+            }else {
+                errorRegister.style.display = "block";
+            }
+        }
+
+        function onLogin() {
+            if (usernameLogin.value == "admin" && passwordLogin.value == "admin123") {
+                localStorage.setItem("username", usernameLogin.value);
+                localStorage.setItem("password", passwordLogin.value);
+                localStorage.setItem("role", "admin");
+                window.location.replace("home.html");
+            } else if (usernameLogin.value == localStorage.getItem("username") && passwordLogin.value == localStorage.getItem("password")){
+                window.location.replace("home.html");
+            } else {
+                errorLogin.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>

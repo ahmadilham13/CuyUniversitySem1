@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
+    <title>Tugas Saklar Lampu</title>
+    <style>
+        body {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div align="center">
+        <img src="assets/images/makan/makan_off.jpg" alt="" width="500px" height="250px" id="makan">
+        <!-- toggle start -->
+        <label for="saklarMakan" class="inline-flex relative items-center cursor-pointer mt-7">
+            <input type="checkbox" id="saklarMakan" class="sr-only peer" onchange="saklarMakan()">
+            <div
+                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+            </div>
+        </label>
+        <!-- toggle stop -->
+        <h2 class="mt-5">Silakan Pilih Ruangan</h2>
+        <button type="button" onclick="location.href='index.html'"
+            class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+            Home
+        </button>
+        <button type="button" onclick="location.href='keluarga.html'"
+            class="py-2 px-4 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+            Ruang Keluarga
+        </button>
+        <button type="button" onclick="location.href='tidur.html'"
+            class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+            Ruang Tidur
+        </button>
+        <button type="button" onclick="location.href='tamu.html'"
+            class="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+            Ruang Tamu
+        </button>
+    </div>
+    <div class=" text-center mt-10">
+        <h2> &copy; <a href="www.instagram.com/ahmadilm_">Ahmad Ilham, S.Kom</a> </h2>
+
+    </div>
+
+    <!-- script -->
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
+    <script src="saklar.js" type="application/javascript"></script>
+</body>
+
+</html>

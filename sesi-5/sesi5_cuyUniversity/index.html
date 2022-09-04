@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #root {
+        background-color: tomato;
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        height: 100vh;
+    }
+</style>
+
+<body>
+    <!-- ini konten kita -->
+    <div id="root">
+        <input type="text" placeholder="username" id="usernameInput"><br>
+        <input type="password" placeholder="Password" id="passwordInput"><br>
+        <button id="loginButton" onclick="onLogin()">LOGIN</button>
+        <button id="logoutButton" onclick="onLogout()">LOGOUT</button>
+        <br>
+        <h1 id="admin">LOGIN SEBAGAI ADMIN</h1>
+        <h1 id="umum">LOGIN SEBAGAI USER BIASA</h1>
+    </div>
+
+    <script type="application/javascript">
+
+        let usernameInput = document.getElementById('usernameInput');
+        let passwordInput = document.getElementById('passwordInput');
+        let loginButton = document.getElementById('loginButton');
+        let logoutButton = document.getElementById('logoutButton');
+
+        let admin = document.getElementById("admin");
+        let umum = document.getElementById("umum");
+
+        logoutButton.style.display = "none";
+        admin.style.display = "none";
+        umum.style.display = "none";
+
+        function onLogin() {
+            console.log('tombol login di klik');
+            console.log('username :', usernameInput.value);
+            console.log('password :', passwordInput.value);
+            localStorage.setItem("username", usernameInput.value); // untuk menyimpan ke storage browser
+
+            if (usernameInput.value == "admin" && passwordInput.value == "admin123") {
+                usernameInput.style.display = "none";
+                passwordInput.style.display = "none";
+                loginButton.style.display = "none";
+                localStorage.setItem("role", "admin");
+                admin.style.display = "block";
+                logoutButton.style.display = "block";
+            } else {
+                usernameInput.style.display = "none";
+                passwordInput.style.display = "none";
+                loginButton.style.display = "none";
+
+                localStorage.setItem("role", "umum");
+                umum.style.display = "block";
+                logoutButton.style.display = "block";
+            }
+        }
+
+        if (localStorage.getItem('username')) {
+            usernameInput.style.display = "none";
+            passwordInput.style.display = "none";
+            loginButton.style.display = "none";
+            logoutButton.style.display = "block";
+            if (localStorage.getItem('role') == "admin") {
+                admin.style.display = "block";
+            } else {
+                umum.style.display = "block";
+            }
+        }
+
+        function onLogout() {
+            localStorage.clear();
+            location.reload();
+        }
+        // styling di js.....
+        // const myName = "Ahmad Ilham13";
+        // const myHobby = "Ngekoding";
+        // let root = document.getElementById("root");
+        // root.textContent = myName + ' ' + myHobby;
+        // root.style.backgroundColor = "tomato";
+        // root.style.textAlign = "center";
+        // root.style.color = "white";
+        // root.style.fontSize = "2em";
+        // root.style.height = "100vh";
+    </script>
+</body>
+
+</html>
